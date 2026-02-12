@@ -163,7 +163,7 @@ jobs:
           ignore-unfixed: true
           severity: HIGH,CRITICAL
           format: table
-          output: ""
+          #output: ""
           exit-code: '0'   # 게이트로 쓰려면 '1'
 
       - name: Check Trivy SARIF has results
