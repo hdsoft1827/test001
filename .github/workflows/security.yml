@@ -162,8 +162,8 @@ jobs:
           scan-type: fs
           ignore-unfixed: true
           severity: HIGH,CRITICAL
-          format: table
-          #output: ""
+          format: sarif
+          output: trivy-fs.sarif
           exit-code: '0'   # 게이트로 쓰려면 '1'
 
       - name: Check Trivy SARIF has results
