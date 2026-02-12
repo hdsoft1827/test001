@@ -162,7 +162,7 @@ jobs:
           scan-type: fs
           ignore-unfixed: true
           severity: HIGH,CRITICAL
-          format: sarif
+          format: 'table'
           output: trivy-fs.sarif
           exit-code: '0'   # 게이트로 쓰려면 '1'
 
