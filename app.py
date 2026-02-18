@@ -3,7 +3,6 @@ import os
 
 app = Flask(__name__)
 
-# 간단한 메모리 저장용 리스트 (과제 수준)
 movies = []
 movie_id_counter = 1
 
@@ -52,7 +51,13 @@ def delete_movie(movie_id):
     return redirect(url_for("index"))
 
 
-# 🔥 Docker & CI 안정 실행용
+# ✅ 테스트에서 필요함
+@app.route("/logout")
+def logout():
+    return redirect(url_for("index"))
+
+
+# 🔥 Docker & CI 안전 실행
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=True)
+    app.run(host="0.0.0.0", port=port)
