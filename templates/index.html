@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<h1>Login</h1>
+<h1>Movie App</h1>
 
 <a href="{{ url_for('logout') }}">Logout</a>
 
@@ -30,15 +30,14 @@
 <h2>Movie List</h2>
 
 <ul>
-    {% for movie in movies %}
-        <li>
-            <a href="{{ url_for('detail', movie_id=movie.id) }}">
-                {{ movie.title }}
-            </a>
-            ({{ movie.rating }}⭐)
-            <a href="{{ url_for('delete_movie', movie_id=movie.id) }}">Delete</a>
-        </li>
-    {% endfor %}
+{% for movie in movies %}
+    <li>
+        <a href="{{ url_for('detail', movie_id=movie.id) }}">
+            {{ movie.title }}
+        </a>
+        ({{ movie.rating }}⭐)
+    </li>
+{% endfor %}
 </ul>
 
 </body>
