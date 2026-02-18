@@ -1,21 +1,45 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Movie Review</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Movie App</title>
 </head>
 <body>
 
-<header class="header">
-  <h1>Movie Review 🎬</h1>
-  <a href="{{ url_for('logout') }}" class="logout-btn">로그아웃</a>
-</header>
+<h1>Login</h1>
 
-<main id="movie-list" class="container"></main>
+<a href="{{ url_for('logout') }}">Logout</a>
 
-<script src="{{ url_for('static', filename='js/movies.js') }}"></script>
-<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<h2>Add Movie</h2>
+
+<form method="POST" action="{{ url_for('add_movie') }}">
+    <input type="text" name="title" placeholder="Title" required><br><br>
+    <input type="text" name="description" placeholder="Description"><br><br>
+
+    <label>Rating:</label>
+    <select name="rating">
+        <option value="1">⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="5">⭐⭐⭐⭐⭐</option>
+    </select><br><br>
+
+    <button type="submit">Add</button>
+</form>
+
+<h2>Movie List</h2>
+
+<ul>
+    {% for movie in movies %}
+        <li>
+            <a href="{{ url_for('detail', movie_id=movie.id) }}">
+                {{ movie.title }}
+            </a>
+            ({{ movie.rating }}⭐)
+            <a href="{{ url_for('delete_movie', movie_id=movie.id) }}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
 
 </body>
 </html>
