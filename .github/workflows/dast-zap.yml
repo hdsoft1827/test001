@@ -16,7 +16,7 @@ jobs:
         steps:
             - uses: actions/checkout@v4 
             - name: ZAP Baseline Scan
-              uses: zaproxy/action-baseline@v2.12.0
+              uses: zaproxy/action-baseline@v0.12.0
               with:
                 target: https://${{ secrets.DOMAIN }}
                 rules_file_name: .zap/rules.tsv
