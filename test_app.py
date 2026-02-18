@@ -7,4 +7,4 @@ def client():
 
 def test_hello(client):
     resp = client.get('/')
-    assert b'Movie Review' in resp.data
+    assert b'Movie Review' in resp.get_data
