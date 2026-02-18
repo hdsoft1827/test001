@@ -14,12 +14,25 @@
 </header>
 
 <div class="container">
+
   <div id="movie-detail" class="detail-card"></div>
+
+  <div class="rating-summary">
+    평균 평점: ⭐ {{ avg_rating }} / 5
+  </div>
 
   <div class="comment-section">
     <h3>리뷰 작성</h3>
 
     <form method="POST" class="comment-form">
+
+      <div class="star-input">
+        {% for i in range(1,6) %}
+          <input type="radio" name="rating" value="{{ i }}" id="star{{ i }}" required>
+          <label for="star{{ i }}">★</label>
+        {% endfor %}
+      </div>
+
       <input type="text" name="comment" placeholder="리뷰를 작성하세요" required>
       <button type="submit">등록</button>
     </form>
@@ -27,10 +40,16 @@
     <h3>댓글 목록</h3>
     <ul class="comment-list">
       {% for c in comments %}
-        <li>{{ c }}</li>
+        <li>
+          <div class="comment-rating">
+            ⭐ {{ c.rating }} / 5
+          </div>
+          <div>{{ c.text }}</div>
+        </li>
       {% endfor %}
     </ul>
   </div>
+
 </div>
 
 <script src="{{ url_for('static', filename='js/movies.js') }}"></script>
