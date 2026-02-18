@@ -3,18 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
-<h2>로그인</h2>
+<header class="header">
+  <h1>Movie Review 🎬</h1>
+</header>
 
-<form method="POST">
-  <input type="text" name="username" placeholder="아이디" required>
-  <br><br>
-  <input type="password" name="password" placeholder="비밀번호" required>
-  <br><br>
-  <button type="submit">로그인</button>
-</form>
+<div class="login-container">
+  <h2>로그인</h2>
+
+  <form method="POST" class="login-form">
+    <input type="text" name="username" placeholder="아이디" required>
+    <input type="password" name="password" placeholder="비밀번호" required>
+    <button type="submit">로그인</button>
+  </form>
+
+  <p class="hint">테스트 계정: admin / 1234</p>
+</div>
 
 </body>
 </html>

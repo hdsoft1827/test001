@@ -7,11 +7,12 @@
 </head>
 <body>
 
-<header>
+<header class="header">
   <h1>Movie Review 🎬</h1>
+  <a href="{{ url_for('logout') }}" class="logout-btn">로그아웃</a>
 </header>
 
-<main id="movie-list"></main>
+<main id="movie-list" class="container"></main>
 
 <script src="{{ url_for('static', filename='js/movies.js') }}"></script>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
