@@ -1,17 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>Movie Detail</title>
+  <meta charset="UTF-8">
+  <title>Movie Detail</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
-<h1>{{ movie.title }}</h1>
+<header class="header">
+  <a href="{{ url_for('home') }}" class="back-btn">← 목록</a>
+  <h1>Movie Detail 🎬</h1>
+  <a href="{{ url_for('logout') }}" class="logout-btn">로그아웃</a>
+</header>
 
-<p>{{ movie.description }}</p>
+<div class="container">
+  <div id="movie-detail" class="detail-card"></div>
 
-<p>Rating: {{ movie.rating }} ⭐</p>
+  <div class="comment-section">
+    <h3>리뷰 작성</h3>
 
-<a href="{{ url_for('index') }}">Back</a>
+    <form method="POST" class="comment-form">
+      <input type="text" name="comment" placeholder="리뷰를 작성하세요" required>
+      <button type="submit">등록</button>
+    </form>
+
+    <h3>댓글 목록</h3>
+    <ul class="comment-list">
+      {% for c in comments %}
+        <li>{{ c }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/movies.js') }}"></script>
+<script src="{{ url_for('static', filename='js/detail.js') }}"></script>
 
 </body>
 </html>
