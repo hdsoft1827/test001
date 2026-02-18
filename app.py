@@ -53,6 +53,9 @@ def detail():
         if comment:
             comments.setdefault(movie_id, []).append(comment)
 
+        # 🔥 여기 핵심: 저장 후 리다이렉트
+        return redirect(url_for('detail', id=movie_id))
+
     movie_comments = comments.get(movie_id, [])
 
     return render_template(
@@ -60,6 +63,7 @@ def detail():
         movie_id=movie_id,
         comments=movie_comments
     )
+
 
 
 # -----------------------
