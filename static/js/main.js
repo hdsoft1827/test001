@@ -12,7 +12,7 @@ movies.forEach(movie => {
   `;
 
   card.querySelector("button").addEventListener("click", () => {
-    window.location.href = `detail.html?id=${movie.id}`;
+    window.location.href = `/detail?id=${movie.id}`;
   });
 
   movieList.appendChild(card);
