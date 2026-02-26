@@ -97,7 +97,7 @@ jobs:
         uses: aquasecurity/trivy-action@0.28.0
         with:
           image-ref: ${{ env.IMG }}
-          pkg-types: 'os,library'
+          vuln-types: 'os,library'
           severity: 'HIGH,CRITICAL'
           ignore-unfixed: true
           format: sarif
@@ -115,7 +115,7 @@ jobs:
         if: always()
         run: |
           trivy image --scanners vuln \
-            --pkg-types os,library \
+            --vuln-types os,library \
             --severity HIGH,CRITICAL \
             --ignore-unfixed \
             --detection-priority precise \
