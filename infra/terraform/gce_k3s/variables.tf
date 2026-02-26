@@ -1,5 +1,5 @@
 variable "project_id" {
-  description = "GCP project ID"
+  description = "project-8d8e946e-d1b3-4114-8ed"
   type        = string
 }
 
@@ -58,7 +58,7 @@ variable "ssh_user" {
 }
 
 variable "ssh_public_key" {
-  description = "Public SSH key content (without username prefix)"
+  description = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFVddjDkOaUVX09cfH1HzeL5S2Zm0TvSX13jKnRj89yT"
   type        = string
 }
 
